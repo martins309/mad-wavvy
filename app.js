@@ -27,3 +27,17 @@ const server = http.createServer(app);
 server.listen(port, hostname, () => {
     console.log(`Server is running on http://${hostname}:${port}`)
 });
+
+const rootController = require('./routes/index');
+
+
+
+const secured = (req, res, next) => {
+    if (req.session.is_logged_in) {
+    return next();
+    }
+    res.redirect("/");
+    };
+    
+    
+app.use('/', rootController);
