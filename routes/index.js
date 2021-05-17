@@ -26,16 +26,7 @@ res.redirect('/');
 
 
 router.get('/signup', async (req, res, next) => {
-res.render('template', {
-    locals: {
-        title: "Sign up Page",
-        is_logged_in: req.session.is_logged_in
-    },
-    partials: {
-        body: "partials/signup",
-        header: "partials/blank_header"
-    }
-})
+const { username, password, first_name, last_name, weight, height_ft, height_in, age, phone_num } = req.body;
 });
 
 
