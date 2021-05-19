@@ -1,7 +1,7 @@
 const host = 'ziggy.db.elephantsql.com',
-    database = 'envbzadl',
-    user = 'envbzadl',
-    password = '2k588JoBHSe94DSPObSWkc9bHDewgIHD';
+    database = 'rgamvxjo',
+    user = 'rgamvxjo',
+    password = 'IYhOKTbILnhBBz-4XK3SZD-NOXlJtB6x';
 
 const pgp = require('pg-promise')({
     query: function(e) {
