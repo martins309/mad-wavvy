@@ -24,10 +24,7 @@ const db = require("./conn"),
 
 
 
-          checkPassword(hashedPassword) {
-            return bcrypt.compareSync(this.password, hashedPassword);
-          }
-
+         
 
 
 
@@ -44,3 +41,5 @@ const db = require("./conn"),
 
 
     }
+
+    module.exports = Login;
