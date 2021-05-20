@@ -4,38 +4,19 @@ bycrypt = require('bcryptjs'),
 UserModel = require('../models/usersModel');
 
 // Gets
-
-router.get('/', (req, res, next) => {
-res.render('template', {
-    locals: {
-        title: "Login Page",
-        is_logged_in: req.session.is_logged_in
-    },
-    partials: {
-        body: "partials/login",
-        header: "partials/blank_header"
-    }
-});
-});
-
-router.get('/logout', (req, res, next) => {
-req.session.destroy();
-res.redirect('/');
+router.get("username", async (req, res) => {
+    const { username } = req.query;
+    console.log("This is the username", username);
+    
 })
 
 
 
-router.get('/signup', async (req, res, next) => {
-res.render('template', {
-    locals: {
-        title: "Sign up Page",
-        is_logged_in: req.session.is_logged_in
-    },
-    partials: {
-        body: "partials/signup",
-        header: "partials/blank_header"
-    }
-})
+
+
+
+router.post('/signup', async (req, res, next) => {
+const { username, password, first_name, last_name, weight, height_ft, height_in, age, phone_num } = req.body;
 });
 
 
@@ -77,6 +58,11 @@ if(response.id) {
     res.send("Error: please try again").status(500);
 }
 });
+
+router.get('/logout', (req, res, next) => {
+    req.session.destroy();
+    res.redirect('/');
+    })
 
 
 
